@@ -1,8 +1,13 @@
 import { hot } from 'react-hot-loader/root';
 import React from 'react';
+import styled from 'styled-components';
+
+const Text = styled.div`
+  color: blue;
+`;
 
 function Main() {
-  return <div>Develop Environment Ready!</div>;
+  return <Text>Develop Environment Ready!</Text>;
 }
 
 export default hot(Main);
