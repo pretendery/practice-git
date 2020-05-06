@@ -34,12 +34,6 @@ const devConfig = {
     hotOnly: true,
     stats: 'errors-only',
     compress: true,
-    proxy: {
-      '**': {
-        target: 'http://localhost/gitdemo/',
-        secure: false,
-      },
-    },
 
     // Enable error/warning overlay
     overlay: {
