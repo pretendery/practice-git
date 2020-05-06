@@ -1,9 +1,8 @@
 const webpack = require('webpack');
 const { resolve } = require('path');
-// const autoprefixer = require('autoprefixer');
-// const cssnano = require('cssnano');
+const autoprefixer = require('autoprefixer');
+const cssnano = require('cssnano');
 
-/*
 const CSS_DEV = {
   test: /\.css$/,
   include: [resolve(__dirname, 'src')],
@@ -24,7 +23,6 @@ const CSS_DEV = {
     },
   ],
 };
-*/
 
 const devConfig = {
   // mode: 'development',
@@ -49,11 +47,9 @@ const devConfig = {
       warnings: true,
     },
   },
-  /*
   module: {
     rules: [CSS_DEV],
   },
-  */
   plugins: [
     new webpack.DefinePlugin({
       baseUrl: JSON.stringify('/dist'),
