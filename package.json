@@ -7,8 +7,8 @@
   "license": "MIT",
   "scripts": {
     "dev": "webpack-dev-server --inline --hot --mode=development --config webpack.config.stdDev.js",
-    "build": "webpack --progress --hide-modules --env.target=server --mode=production --config webpack.config.stdProd.js",
-    "build:local": "webpack --progress --hide-modules --env.target=local --mode=production --config webpack.config.stdProd.js"
+    "prod": "webpack --progress --hide-modules --env.target=server --mode=production --config webpack.config.stdProd.js",
+    "prod:local": "webpack --progress --hide-modules --env.target=local --mode=production --config webpack.config.stdProd.js"
   },
   "devDependencies": {
     "@babel/core": "^7.9.6",
