@@ -19,7 +19,7 @@ const stdBase = {
 };
 
 const stdProd = (env) => {
-  const BASE_URL = env.target === 'local' ? '/ts/gitdemo/dist' : '';
+  const BASE_URL = env.target === 'local' ? '.' : '';
   const ASSETS_URL = `${BASE_URL}/assets/`;
 
   return {
