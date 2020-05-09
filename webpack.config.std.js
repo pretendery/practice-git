@@ -27,7 +27,9 @@ const stdProd = (env) => {
       publicPath: ASSETS_URL,
     },
     plugins: [
-      new CleanWebpackPlugin(),
+      new CleanWebpackPlugin({
+        cleanOnceBeforeBuildPatterns: ['**/*', '!css', '!css/base.css'],
+      }),
       new HtmlWebpackPlugin({
         title: 'Git Demo',
         filename: resolve(__dirname, 'dist', 'index.html'),
