@@ -1,6 +1,11 @@
-# practice-git
+# Practice git
 Learn how to use Git
 
-*Something changed.*
+```sh
+  # Download
+  > git clone https://github.com/pretendery/practice-git.git
 
-### 補充說明
+  # Install
+  > cd practice-git
+  > yarn install
+```
