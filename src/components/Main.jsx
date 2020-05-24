@@ -18,7 +18,7 @@ import {
   // InputLabel,
   Select,
   MenuItem,
-  Box,
+  Grid,
 } from '@material-ui/core';
 import {
   createMuiTheme,
@@ -122,133 +122,145 @@ function Main() {
                 const isError = (column) => errors[column] && touched[column];
                 return (
                   <form onSubmit={handleSubmit} autoComplete="off">
-                    <TextField
-                      id="name"
-                      label="姓名*"
-                      placeholder="Input your name..."
-                      value={values.name}
-                      variant="outlined"
-                      className={classes.input}
-                      onChange={handleChange}
-                      error={isError('name')}
-                      helperText={isError('name') ? errors.name : null}
-                      fullWidth
-                    />
-                    <TextField
-                      id="phone"
-                      label="電話*"
-                      placeholder="Input your phone number..."
-                      value={values.name}
-                      variant="outlined"
-                      className={classes.input}
-                      onChange={handleChange}
-                      error={isError('phone')}
-                      helperText={isError('phone') ? errors.phone : null}
-                      fullWidth
-                    />
-                    <FormControl
-                      component="fieldset"
-                      error={typeof errors.fruit === 'string'}
-                    >
-                      <FormLabel component="legend">
-                        *水果喜好 (至少要選一項)
-                      </FormLabel>
-                      <FieldArray
-                        name="fruit"
-                        render={(arrayHelpers) => {
-                          const handleCheck = (value) => (e) => {
-                            if (e.target.checked) {
-                              arrayHelpers.push(value);
-                            } else {
-                              const idx = arrayHelpers.form.values.fruit.indexOf(
-                                value
-                              );
-                              arrayHelpers.remove(idx);
-                            }
-                          };
-                          const isChecked = (value) =>
-                            arrayHelpers.form.values.fruit.includes(value);
-                          return (
-                            <>
-                              <FormGroup>
-                                <FormControlLabel
-                                  control={
-                                    <Checkbox onChange={handleCheck('apple')} />
-                                  }
-                                  checked={isChecked('apple')}
-                                  label="Apple"
-                                />
-                                <FormControlLabel
-                                  control={
-                                    <Checkbox
-                                      onChange={handleCheck('orange')}
+                    <Grid container>
+                      <Grid item xs={12}>
+                        <TextField
+                          id="name"
+                          label="姓名*"
+                          placeholder="Input your name..."
+                          value={values.name}
+                          variant="outlined"
+                          className={classes.input}
+                          onChange={handleChange}
+                          error={isError('name')}
+                          helperText={isError('name') ? errors.name : null}
+                          fullWidth
+                        />
+                      </Grid>
+                      <Grid item xs={12}>
+                        <TextField
+                          id="phone"
+                          label="電話*"
+                          placeholder="Input your phone number..."
+                          value={values.name}
+                          variant="outlined"
+                          className={classes.input}
+                          onChange={handleChange}
+                          error={isError('phone')}
+                          helperText={isError('phone') ? errors.phone : null}
+                          fullWidth
+                        />
+                      </Grid>
+                      <Grid item xs={12}>
+                        <FormControl
+                          component="fieldset"
+                          error={typeof errors.fruit === 'string'}
+                        >
+                          <FormLabel component="legend">
+                            *水果喜好 (至少要選一項)
+                          </FormLabel>
+                          <FieldArray
+                            name="fruit"
+                            render={(arrayHelpers) => {
+                              const handleCheck = (value) => (e) => {
+                                if (e.target.checked) {
+                                  arrayHelpers.push(value);
+                                } else {
+                                  const idx = arrayHelpers.form.values.fruit.indexOf(
+                                    value
+                                  );
+                                  arrayHelpers.remove(idx);
+                                }
+                              };
+                              const isChecked = (value) =>
+                                arrayHelpers.form.values.fruit.includes(value);
+                              return (
+                                <>
+                                  <FormGroup>
+                                    <FormControlLabel
+                                      control={
+                                        <Checkbox
+                                          onChange={handleCheck('apple')}
+                                        />
+                                      }
+                                      checked={isChecked('apple')}
+                                      label="Apple"
                                     />
-                                  }
-                                  checked={isChecked('orange')}
-                                  label="Orange"
-                                />
-                                <FormControlLabel
-                                  control={
-                                    <Checkbox onChange={handleCheck('grape')} />
-                                  }
-                                  checked={isChecked('grape')}
-                                  label="Grape"
-                                />
-                              </FormGroup>
-                              {typeof arrayHelpers.form.errors.fruit ===
-                                'string' && (
-                                <FormHelperText>
-                                  {arrayHelpers.form.errors.fruit}
-                                </FormHelperText>
-                              )}
-                            </>
-                          );
-                        }}
-                      />
-                    </FormControl>
-                    <Box>
-                      <FormControl
-                        variant="outlined"
-                        error={isError('program')}
-                      >
-                        {/*
+                                    <FormControlLabel
+                                      control={
+                                        <Checkbox
+                                          onChange={handleCheck('orange')}
+                                        />
+                                      }
+                                      checked={isChecked('orange')}
+                                      label="Orange"
+                                    />
+                                    <FormControlLabel
+                                      control={
+                                        <Checkbox
+                                          onChange={handleCheck('grape')}
+                                        />
+                                      }
+                                      checked={isChecked('grape')}
+                                      label="Grape"
+                                    />
+                                  </FormGroup>
+                                  {typeof arrayHelpers.form.errors.fruit ===
+                                    'string' && (
+                                    <FormHelperText>
+                                      {arrayHelpers.form.errors.fruit}
+                                    </FormHelperText>
+                                  )}
+                                </>
+                              );
+                            }}
+                          />
+                        </FormControl>
+                      </Grid>
+                      <Grid item xs={12}>
+                        <FormControl
+                          variant="outlined"
+                          error={isError('program')}
+                        >
+                          {/*
                       <InputLabel id="program-label">
                         方案
                       </InputLabel>
                       */}
-                        <FormLabel>方案選擇</FormLabel>
-                        <Select
-                          labelId="program-label"
-                          id="program"
-                          name="program"
-                          onChange={handleChange}
-                          value={values.program}
-                          displayEmpty
+                          <FormLabel>方案選擇</FormLabel>
+                          <Select
+                            labelId="program-label"
+                            id="program"
+                            name="program"
+                            onChange={handleChange}
+                            value={values.program}
+                            displayEmpty
+                          >
+                            <MenuItem value="" disabled>
+                              <em>請選擇合適的方案</em>
+                            </MenuItem>
+                            <MenuItem value="p1">Program1</MenuItem>
+                            <MenuItem value="p2">Program2</MenuItem>
+                            <MenuItem value="p3">Program3</MenuItem>
+                          </Select>
+                          {isError('program') && (
+                            <FormHelperText>{errors.program}</FormHelperText>
+                          )}
+                        </FormControl>
+                      </Grid>
+                      <Grid item xs={12}>
+                        <Button
+                          type="submit"
+                          variant="contained"
+                          size="large"
+                          color="primary"
+                          disableElevation
                         >
-                          <MenuItem value="" disabled>
-                            <em>請選擇合適的方案</em>
-                          </MenuItem>
-                          <MenuItem value="p1">Program1</MenuItem>
-                          <MenuItem value="p2">Program2</MenuItem>
-                          <MenuItem value="p3">Program3</MenuItem>
-                        </Select>
-                        {isError('program') && (
-                          <FormHelperText>{errors.program}</FormHelperText>
-                        )}
-                      </FormControl>
-                    </Box>
-                    <div className={classes.buttonBlock}>
-                      <Button
-                        type="submit"
-                        variant="contained"
-                        size="large"
-                        color="primary"
-                        disableElevation
-                      >
-                        Submit
-                      </Button>
-                    </div>
-                    <pre>{JSON.stringify(values, null, 2)}</pre>
+                          Submit
+                        </Button>
+                      </Grid>
+                      <pre>{JSON.stringify(values, null, 2)}</pre>
+                    </Grid>
                   </form>
                 );
               }}

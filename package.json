@@ -8,7 +8,8 @@
   "scripts": {
     "dev": "webpack-dev-server --inline --hot --mode=development --config webpack.config.stdDev.js",
     "prod": "webpack --progress --hide-modules --env.target=server --mode=production --config webpack.config.stdProd.js",
-    "prod:local": "webpack --progress --hide-modules --env.target=local --mode=production --config webpack.config.stdProd.js"
+    "prod:local": "webpack --progress --hide-modules --env.target=local --mode=production --config webpack.config.stdProd.js",
+    "test": "jest --no-cache"
   },
   "devDependencies": {
     "@babel/core": "^7.9.6",
@@ -18,8 +19,12 @@
     "@babel/preset-env": "^7.9.6",
     "@babel/preset-react": "^7.9.4",
     "@babel/runtime": "^7.9.6",
+    "@testing-library/jest-dom": "^5.8.0",
+    "@testing-library/react": "^10.0.4",
+    "@testing-library/user-event": "^10.3.5",
     "autoprefixer": "^9.7.6",
     "babel-eslint": "^10.1.0",
+    "babel-jest": "^26.0.1",
     "babel-loader": "^8.1.0",
     "babel-plugin-styled-components": "^1.10.7",
     "clean-webpack-plugin": "^3.0.0",
@@ -30,12 +35,15 @@
     "eslint-config-prettier": "^6.11.0",
     "eslint-plugin-html": "^6.0.2",
     "eslint-plugin-import": "^2.20.2",
+    "eslint-plugin-jest": "^23.13.1",
     "eslint-plugin-jsx-a11y": "^6.2.3",
     "eslint-plugin-prettier": "^3.1.3",
     "eslint-plugin-react": "^7.19.0",
     "eslint-plugin-react-hooks": "2.5.0",
+    "eslint-plugin-testing-library": "^3.1.3",
     "file-loader": "^6.0.0",
     "html-webpack-plugin": "^4.3.0",
+    "jest": "^26.0.1",
     "mini-css-extract-plugin": "^0.9.0",
     "optimize-css-assets-webpack-plugin": "^5.0.3",
     "postcss-loader": "^3.0.0",
