@@ -11,6 +11,7 @@ const HTML_MINIFY = {
 const stdBase = {
   entry: {
     main: ['./src/main.js'],
+    st: ['./src/st.js'],
   },
   output: {
     path: resolve(__dirname, 'dist', 'assets'),

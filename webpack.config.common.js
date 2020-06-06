@@ -41,7 +41,7 @@ const commonConfig = (_, argv) => {
 
   const URL_OPTIONS = {
     loader: 'url-loader',
-    exclude: '/node_modules/',
+    exclude: /node_modules/,
     test: /\.(gif|jpg|png|svg)$/,
     options: {
       limit: 10000,
@@ -52,6 +52,9 @@ const commonConfig = (_, argv) => {
   return {
     resolve: {
       extensions: ['.js', '.jsx'],
+      alias: {
+        'react-dom': '@hot-loader/react-dom',
+      },
     },
     module: {
       rules: [BABEL_OPTIONS, URL_OPTIONS],
