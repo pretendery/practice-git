@@ -256,7 +256,7 @@ function Main() {
                           color="primary"
                           disableElevation
                         >
-                          Submit
+                          送出
                         </Button>
                       </Grid>
                       <pre>{JSON.stringify(values, null, 2)}</pre>
