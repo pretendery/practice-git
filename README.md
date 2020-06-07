@@ -9,3 +9,10 @@ Learn how to use Git
   > cd practice-git
   > yarn install
 ```
+## Memo
+How to change latest commit message
+```sh
+  > git commit --amend -m "The message you want to change"
+  # Check there is no one put new things, and you can force push.
+  > git push --force-with-lease
+```
