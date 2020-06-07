@@ -6,7 +6,7 @@ function Test({ greeting, testFunc }) {
   const [user, setUser] = useState('John');
   const [gMsg, setGMsg] = useState('');
   const changeUser = () => {
-    setUser('Kim');
+    setUser('Jane');
   };
   useEffect(() => {
     testFunc() || setGMsg(`${greeting} there`);
